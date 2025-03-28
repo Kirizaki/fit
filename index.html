@@ -3,91 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan Zdrowotny</title>
+    <title>Plan Treningowy i Koktajle</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background: #f4f4f4;
-            color: #333;
+            display: flex;
         }
-        .container {
+        #toc {
+            width: 250px;
+            position: fixed;
+            left: 10px;
+            top: 20px;
+            padding: 10px;
+            border-right: 2px solid #ccc;
+        }
+        .content {
+            margin-left: 270px;
             max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
-            color: #2c3e50;
+        .toggle {
+            cursor: pointer;
+            font-weight: bold;
+            color: #007bff;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            background: #e3e3e3;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .code {
-            background: #222;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: monospace;
+        .details {
+            display: none;
+            margin-left: 15px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📅 Plan Zdrowotny</h1>
-
-        <h2>🥤 Skład koktajlu szpinakowego</h2>
+    <div id="toc">
+        <h3>Spis treści</h3>
         <ul>
-            <li>Szpinak świeży – 350-400g</li>
-            <li>Jabłka – 7 sztuk</li>
-            <li>Banany – 7 sztuk</li>
-            <li>Pomarańcze – 7 sztuk lub 1L świeżo wyciskanego soku</li>
-            <li>Siemię lniane mielone – 100g</li>
-            <li>Imbir świeży – kawałek</li>
-            <li>Kurkuma (opcjonalnie)</li>
-            <li>Woda kokosowa / mineralna – opcjonalnie</li>
-        </ul>
-
-        <h2>🥤 Skład koktajlu malinowego</h2>
-        <ul>
-            <li>Sok jabłkowy</li>
-            <li>Sok z buraka</li>
-            <li>Truskawki</li>
-            <li>Maliny</li>
-            <li>Miód pszczeli</li>
-            <li>Witamina C</li>
-        </ul>
-
-        <h2>🏋️ Plan tygodniowy</h2>
-        <ul>
-            <li><b>Poniedziałek</b> – Zestaw ćwiczeń miednica + spacer 30 min</li>
-            <li><b>Wtorek</b> – Basen + rozciąganie</li>
-            <li><b>Środa</b> – Zestaw miednica + 30 min rower/spacer</li>
-            <li><b>Czwartek</b> – Zestaw miednica + lekka joga (YouTube 20 min)</li>
-            <li><b>Piątek</b> – Basen + chill</li>
-            <li><b>Sobota</b> – Zestaw miednica + długi spacer (min. 45 min)</li>
-            <li><b>Niedziela</b> – OFF lub lekki spacer / oddechówki</li>
-        </ul>
-
-        <h2>🧘 Zestaw ćwiczeń</h2>
-        <ul>
-            <li><b>Zestaw miednica</b> – mostek, unoszenie nóg, plank</li>
-            <li><b>Rozciąganie</b> – stretching dynamiczny (nogi, biodra, plecy)</li>
-            <li><b>Lekka joga</b> – <a href="https://www.youtube.com/results?search_query=lekka+joga+20+min" target="_blank">Znajdź na YouTube</a></li>
-            <li><b>Basen</b> – 30-45 min spokojnego pływania</li>
-            <li><b>Oddechówki</b> – oddychanie przeponowe, box breathing</li>
+            <li><a href="#koktajl1">🥤 Koktajl szpinakowy</a></li>
+            <li><a href="#koktajl2">🥤 Koktajl malinowy</a></li>
+            <li><a href="#plan">📅 Plan tygodnia</a></li>
         </ul>
     </div>
+    <div class="content">
+        <h2 id="koktajl1" class="toggle">🥤 Skład koktajlu szpinakowego</h2>
+        <div class="details">Szpinak, jabłko, banan, pomarańcza, siemię lniane, imbir...</div>
+
+        <h2 id="koktajl2" class="toggle">🥤 Skład koktajlu malinowego</h2>
+        <div class="details">Sok jabłkowy, sok z buraka, truskawki, maliny, miód...</div>
+
+        <h2 id="plan">📅 Plan tygodnia</h2>
+        <h3 class="toggle">Poniedziałek - Zestaw ćwiczeń miednica + spacer</h3>
+        <div class="details">Ćwiczenia wzmacniające core, stabilizacja miednicy...</div>
+
+        <h3 class="toggle">Wtorek - Basen + rozciąganie</h3>
+        <div class="details">Pływanie stylem dowolnym, stretching całego ciała...</div>
+
+        <h3 class="toggle">Czwartek - Joga</h3>
+        <div class="details"><a href="https://www.youtube.com/" target="_blank">Link do lekkiej jogi</a></div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.toggle').forEach(item => {
+            item.addEventListener('click', () => {
+                const details = item.nextElementSibling;
+                details.style.display = details.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
 </html>
